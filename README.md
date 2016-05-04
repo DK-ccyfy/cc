@@ -8,19 +8,19 @@
 
 
 function showImg(url,_node,num) {
-                    window.img = '<img  src=\'' + url + '?' + Math.random() + '\' />';
-                    $(_node).parent().append('<iframe class="iframe-content"  src="javascript:parent.img;" frameBorder="0" scrolling="no" style="max-width: 100%;"></iframe>');
-                    $(_node).remove();
-                    $('body').find('iframe').contents().find('body').css('margin','0');
-                    $('body').find('iframe').contents().find('img').css('max-width','100%');
-                    setTimeout(function(){
-                        var tar =$('body').find('iframe')[num-1];
-                        var _heihth = $(tar).contents().find('img').height()+'px';console.log(_heihth);
-                        $(tar).css('height',_heihth);
-                        $(tar).contents().find('img').css('height',_heihth);
-                    },1000)
+    window.img = '<img  src=\'' + url + '?' + Math.random() + '\' />';
+    $(_node).parent().append('<iframe class="iframe-content"  src="javascript:parent.img;" frameBorder="0" scrolling="no" style="max-width: 100%;"></iframe>');
+    $(_node).remove();
+    $('body').find('iframe').contents().find('body').css('margin','0');
+    $('body').find('iframe').contents().find('img').css('max-width','100%');
+    setTimeout(function(){
+        var tar =$('body').find('iframe')[num-1];
+        var _heihth = $(tar).contents().find('img').height()+'px';console.log(_heihth);
+        $(tar).css('height',_heihth);
+        $(tar).contents().find('img').css('height',_heihth);
+    },1000)
 
-                };
+};
 setTimeout(function(){
     $('img').each(function(i){
         if ($(this).attr('data-src')) {
