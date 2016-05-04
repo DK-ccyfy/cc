@@ -6,8 +6,9 @@
 于是想到将img嵌套到一个iframe中，这样它的请求地址就为‘’，这样能够绕开微信的防盗链校验。
 试验后果然成功了，这也是试验了许多办法能够成功的，代码如下，写的有点糙 - - 。
 
-
-function showImg(url,_node,num) {
+<pre>
+<p>
+var showImg=function(url,_node,num) {
     window.img = '<img  src=\'' + url + '?' + Math.random() + '\' />';
     $(_node).parent().append('<iframe class="iframe-content"  src="javascript:parent.img;" frameBorder="0" scrolling="no" style="max-width: 100%;"></iframe>');
     $(_node).remove();
@@ -32,6 +33,8 @@ setTimeout(function(){
         }
     }) ;
 }, 1000);
+</p>
+</pre>
 
 请注意务必将这段放在数据渲染之后
 
